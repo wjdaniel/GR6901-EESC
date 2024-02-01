@@ -92,6 +92,8 @@ To build on to question 5, -c counts the number of repeated entries in the uniq.
 Question 9
 Create a shell script named countEq.sh that returns the total number of earthquakes for a given country, where the country is specified as the option when calling the script. Hint: see the Shell Script notes and use the special variable $1. Paste your script below and give an example calling sequence for country USA.
 
+Shell Script:
+
 #!/bin/bash
 
 if [ "$#" -ne 1 ]; then
@@ -111,8 +113,6 @@ total_eq=$(awk -F'\t' -v country="$country" '$3 == country {sum += 1} END {print
 echo "Total number of earthquakes in $country: $total_eq"
 
 
-
-
 chmod u+x countEq.sh
 ./countEq.sh USA
 Total number of earthquakes in USA: 255
@@ -122,6 +122,7 @@ Total number of earthquakes in USA: 255
 Question 10
 Create a shell script named countEq_getLargestEq.sh that returns both the total number of earthquakes AND the largest earthquake for a given country, where the country is specified as the option when calling the script. Use the echo command before each command to create labels for each returned value. Paste your script below and give an example calling sequence for country CHILE.
 
+Shell Script:
 #!/bin/bash
 
 
@@ -145,6 +146,11 @@ echo "Total Earthquakes for $country: $total_earthquakes"
 
 largest_earthquake=$(awk -F'\t' -v country="$country" '$3 == country{print $2}' "$file" | sort -nr | head -n 1)
 echo "Largest Earthquake Magnitude for $country: $largest_earthquake" 
+
+
+Similar to question 10, we count the number of eq that matches the input string. For the largest_earthquake, we extract that row that matches the string but extract the magnitude instead. Sort the magntiude in reverse (so largest on top). Head give us the top line and echo it to print.
+
+Command:
 
 chmod u+x countEq_getLargestEq.sh
 ./countEq_getLargestEq.sh CHILE
@@ -176,6 +182,9 @@ Command:
 cut -f 1 Year_Mag_Country.tsv | sed '1d' | sort | uniq -c | sort -k1nr | head -10 | awk '{print $2}' > loopfile.tsv
 vi eq_loop.sh
 
+
+Shell Script:
+
 #!/bin/bash
 
 
@@ -200,6 +209,7 @@ for YEAR in $years; do
 done
 
 
+Command:
 chmod u+x eq_loop.sh
 ./eq_loop.sh
 
