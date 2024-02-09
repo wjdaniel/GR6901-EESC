@@ -33,6 +33,20 @@ sort -k2nr  temp_YMC_body.tsv > temp_YMC_body_sorted.tsv
 cat temp_YMC_header.tsv temp_YMC_body_sorted.tsv >| Year_Mag_Country.tsv
 head -11 Year_Mag_Country.tsv
 
+
+Answer:
+YEAR    EQ_PRIMARY      COUNTRY
+1960     9.5    CHILE
+1964     9.2    USA
+2004     9.1    INDONESIA
+2011     9.1    JAPAN
+1700     9.0    USA
+1952     9.0    RUSSIA
+1716     8.8    PERU
+1812     8.8    USA
+2010     8.8    CHILE
+1513     8.7    PERU
+
 First extract the headers.
 Second remove the header and create a body text
 Third sort by the 2nd column which is the magnitude. 'r' reverses the sorting allowing the largest value be at the top.
