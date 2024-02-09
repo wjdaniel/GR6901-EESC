@@ -34,7 +34,6 @@ cat temp_YMC_header.tsv temp_YMC_body_sorted.tsv >| Year_Mag_Country.tsv
 head -11 Year_Mag_Country.tsv
 
 
-Answer:
 YEAR    EQ_PRIMARY      COUNTRY
 1960     9.5    CHILE
 1964     9.2    USA
